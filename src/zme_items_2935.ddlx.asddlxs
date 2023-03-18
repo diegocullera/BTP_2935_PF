@@ -1,0 +1,97 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: {
+headerInfo: { typeName: 'Item', description.label: 'Test', typeNamePlural: 'Items', title: { type: #STANDARD, value: 'ItemId' } }
+}
+annotate view Z_I_ITEMS_2935 with
+{
+  @UI.facet:
+  [{
+  id: 'Item', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Item', position: 10
+  }]
+  @UI: {
+        lineItem: [ { position: 15, importance: #HIGH } ],
+        identification: [ { position: 15, label: 'Item ID' } ]
+        }
+  @Search.defaultSearchElement: true
+  ItemId;
+
+  @UI: {
+        lineItem: [ { position: 20, importance: #HIGH } ],
+        identification: [ { position: 20, label: 'ID' } ]
+        }
+  @Search.defaultSearchElement: true
+  Id;
+
+  @UI: {
+        lineItem: [ { position: 30, importance: #HIGH } ],
+        identification: [ { position: 30, label: 'Name' } ]
+        }
+  @Search.defaultSearchElement: true
+  Name;
+
+  @UI: {
+        lineItem: [ { position: 30, importance: #HIGH } ],
+        identification: [ { position: 30, label: 'Description' } ]
+        }
+  @Search.defaultSearchElement: true
+  Description;
+
+  @UI: {
+        lineItem: [ { position: 40, importance: #HIGH } ],
+        identification: [ { position: 40, label: 'Release Date' } ]
+        }
+  @Search.defaultSearchElement: true
+  Releasedate;
+
+
+  @UI: {
+        lineItem: [ { position: 50, importance: #HIGH } ],
+        identification: [ { position: 50, label: 'Discontinued date' } ]
+        }
+  @Search.defaultSearchElement: true
+  Discontinueddate;
+
+  @UI: {
+        lineItem: [ { position: 60, importance: #HIGH } ],
+        identification: [ { position: 60, label: 'Price' } ]
+        }
+  @Search.defaultSearchElement: true
+  Price;
+
+  @UI: {
+        lineItem: [ { position: 70, importance: #HIGH } ],
+        identification: [ { position: 70, label: 'Height' } ]
+        }
+  @Search.defaultSearchElement: true
+  Height;
+
+  @UI: {
+        lineItem: [ { position: 80, importance: #HIGH } ],
+        identification: [ { position: 80, label: 'Width' } ]
+        }
+  @Search.defaultSearchElement: true
+  Width;
+
+  @UI: {
+        lineItem: [ { position: 90, importance: #HIGH } ],
+        identification: [ { position: 90, label: 'Depth' } ]
+        }
+  @Search.defaultSearchElement: true
+  Depth;
+
+  @UI: {
+        lineItem: [ { position: 100, importance: #HIGH } ],
+        identification: [ { position: 100, label: 'Quantity' } ]
+        }
+  @Search.defaultSearchElement: true
+  Quantity;
+
+  @UI: {
+        lineItem: [ { position: 110, importance: #HIGH } ],
+        identification: [ { position: 110, label: 'Unit of measure' } ]
+        }
+  @Search.defaultSearchElement: true
+  Unitofmeasure;
+
+}

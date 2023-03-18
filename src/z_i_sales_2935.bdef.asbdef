@@ -1,0 +1,50 @@
+managed;
+
+define behavior for Z_I_SALES_2935 alias Sales
+implementation in class zbp_i_sales_2935 unique
+persistent table zheader_2935
+lock master
+authorization master ( instance )
+//etag master Createon
+{
+  create;
+  update;
+  delete;
+  association _Item { create; }
+  //field ( readonly ) Createon;
+  field ( mandatory : create ) Id, Email;
+
+  // dynamic field control
+  field (features : instance) Id, Email, Createon;
+  mapping
+       for zheader_2935 corresponding;
+    }
+
+
+  define behavior for Z_I_ITEMS_2935 alias Items
+  persistent table zitems_2935
+  lock dependent by _Sale
+  authorization dependent by _Sale
+  //etag master <field_name>
+  {
+    update;
+    delete;
+    field ( readonly ) Id;
+    field ( mandatory : create ) ItemId;
+    association _Sale;
+    mapping for zitems_2935
+      {
+        ItemId           = item_id;
+        Depth            = depth;
+        Description      = description;
+        Discontinueddate = discontinueddate;
+        Height           = height;
+        Id               = id;
+        Name             = name;
+        Price            = price;
+        Quantity         = quantity;
+        Releasedate      = releasedate;
+        Unitofmeasure    = unitofmeasure;
+        Width            = width;
+      }
+  }
