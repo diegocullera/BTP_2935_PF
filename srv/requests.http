@@ -1,0 +1,28 @@
+### Get Sales
+GET http://localhost:4004/Sales/SalesSrv
+
+### Create Sale
+POST http://localhost:4004/Sales/SalesSrv HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":8,
+    "email":"test@mail.com",
+    "firstname":"Test1",
+    "lastname":"Test1 lastname",
+    "country":"ES"
+}
+
+
+### Update Sale
+PUT http://localhost:4004/Sales/SalesSrv(8) HTTP/1.1
+Content-type: application/json
+
+{
+ "firstname":"Updated",
+ "lastname":"Updated"
+}
+
+
+### Delete Sale
+DELETE http://localhost:4004/Sales/SalesSrv(8)

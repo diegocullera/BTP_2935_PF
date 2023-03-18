@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="SalesService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="SalesSrv" EntityType="SalesService.SalesSrv">
+                    <NavigationPropertyBinding Path="Items" Target="ItemsSrv"/>
+                </EntitySet>
+                <EntitySet Name="ItemsSrv" EntityType="SalesService.ItemsSrv">
+                    <NavigationPropertyBinding Path="id" Target="SalesSrv"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="SalesSrv">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="email" Type="Edm.String" MaxLength="40" Nullable="false"/>
+                <Property Name="firstname" Type="Edm.String" MaxLength="40"/>
+                <Property Name="lastname" Type="Edm.String" MaxLength="40"/>
+                <Property Name="country" Type="Edm.String" MaxLength="30"/>
+                <Property Name="createon" Type="Edm.Date"/>
+                <Property Name="deliverydate" Type="Edm.Date"/>
+                <Property Name="orderstatus" Type="Edm.Int32"/>
+                <Property Name="imageurl" Type="Edm.String" MaxLength="40"/>
+                <NavigationProperty Name="Items" Type="Collection(SalesService.ItemsSrv)" Partner="id"/>
+            </EntityType>
+            <EntityType Name="ItemsSrv">
+                <Key>
+                    <PropertyRef Name="item_id"/>
+                    <PropertyRef Name="id_id"/>
+                </Key>
+                <Property Name="item_id" Type="Edm.String" MaxLength="36" Nullable="false"/>
+                <NavigationProperty Name="id" Type="SalesService.SalesSrv" Partner="Items">
+                    <ReferentialConstraint Property="id_id" ReferencedProperty="id"/>
+                </NavigationProperty>
+                <Property Name="id_id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="40"/>
+                <Property Name="description" Type="Edm.String" MaxLength="40"/>
+                <Property Name="releasedate" Type="Edm.Date"/>
+                <Property Name="discontinueddate" Type="Edm.Date"/>
+                <Property Name="price" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="height" Type="Edm.Decimal" Scale="3" Precision="15"/>
+                <Property Name="width" Type="Edm.Decimal" Scale="3" Precision="13"/>
+                <Property Name="depth" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="quantity" Type="Edm.Decimal" Scale="2" Precision="16"/>
+                <Property Name="unitofmeasure" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

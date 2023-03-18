@@ -1,0 +1,30 @@
+
+CREATE TABLE com_dmr2935_Sales (
+  id INTEGER NOT NULL,
+  email NVARCHAR(40) NOT NULL,
+  firstname NVARCHAR(40),
+  lastname NVARCHAR(40),
+  country NVARCHAR(30),
+  createon DATE_TEXT,
+  deliverydate DATE_TEXT,
+  orderstatus INTEGER,
+  imageurl NVARCHAR(40),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE com_dmr2935_Items (
+  item_id NVARCHAR(36) NOT NULL,
+  id_id INTEGER NOT NULL,
+  name NVARCHAR(40),
+  description NVARCHAR(40),
+  releasedate DATE_TEXT,
+  discontinueddate DATE_TEXT,
+  price DECIMAL(12, 2),
+  height DECIMAL(15, 3),
+  width DECIMAL(13, 3),
+  depth DECIMAL(12, 2),
+  quantity DECIMAL(16, 2),
+  unitofmeasure NVARCHAR(2),
+  PRIMARY KEY(item_id, id_id)
+);
+
